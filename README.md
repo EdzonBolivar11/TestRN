@@ -43,7 +43,7 @@ When tapping a user, show details (can be a `Modal` or navigation):
   - `TextInput` + **~300ms debounce** (no libraries)
 - Pagination
 - Basic performance
-- 
+  
 ---
 
 ## Constraints

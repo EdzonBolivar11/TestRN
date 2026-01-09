@@ -10,12 +10,7 @@
 ---
 
 ## API (free, no key)
-Use **Random User API**:
-
-- List (20 users):
-  - `https://randomuser.me/api/?results=20&seed=rn-mid&page=1`
-
-> Keep the same `seed` and increase `page` if you implement pagination.
+Use **Random User API** https://randomuser.me/:
 
 ---
 

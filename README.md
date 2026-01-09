@@ -1,50 +1,58 @@
-# Welcome to your Expo app 👋
+# React Native Mid 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Goal
+- Consume a **public API with no API key**
+- Render a **list** with clean UX (loading / error / retry)
+- Open a **details view** when selecting an item
 
-## Get started
+> Focus on shipping something **working and clean**, not perfect.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## API (free, no key)
+Use **Random User API**:
 
-2. Start the app
+- List (20 users):
+  - `https://randomuser.me/api/?results=20&seed=rn-mid&page=1`
 
-   ```bash
-   npx expo start
-   ```
+> Keep the same `seed` and increase `page` if you implement pagination.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Requirements (Must-have)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 1) Main screen: “User Directory”
+- Fetch the API on screen mount.
+- Render a `FlatList` showing:
+  - Photo (thumbnail)
+  - Full name
+  - City + Country
+- States:
+  - **Loading**: `ActivityIndicator`
+  - **Error**: message + **Retry** button
+  - **Empty**: “No results” when there are no items
 
-## Get a fresh project
+### 2) Refresh
+- Implement **pull-to-refresh** (reload data keeping the same `seed`).
 
-When you're ready, run:
+### 3) Details
+When tapping a user, show details (can be a `Modal` or navigation):
+- Email
+- Phone
+- Location (simple string)
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Bonus (if you have extra time)
+- Name search:
+  - `TextInput` + **~300ms debounce** (no libraries)
+- Pagination
+- Basic performance
+- 
+---
 
-## Learn more
+## Constraints
+- TypeScript (avoid `any`)
+- No “weird” extra libraries (use RN/Expo built-ins)
+- Keep code readable (minimum: separate an `api.ts` or a `useUsers` hook)
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
